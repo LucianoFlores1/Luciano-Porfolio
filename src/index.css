@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: "VT323", monospace;
+  --font-cursive: "Caveat", cursive;
+  --color-neon-red: #ff2a4b;
+  --color-neon-pink: #ff0055;
+}
+
+@layer utilities {
+  .crt-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 50;
+  }
+  
+  .vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0) 50%, rgba(0,0,0,0.85) 100%);
+    pointer-events: none;
+    z-index: 40;
+  }
+  
+  .text-neon {
+    color: #ff6b8b;
+    text-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c, 0 0 20px #ff003c;
+  }
+  
+  .text-neon-active {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c, 0 0 20px #ff003c, 0 0 40px #ff003c;
+  }
+  
+  .box-neon {
+    border: 2px solid #ff003c;
+    box-shadow: 0 0 10px #ff003c, inset 0 0 10px #ff003c;
+  }
+  
+  .custom-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="%2300ff00" stroke="%23ffffff" stroke-width="1"><path d="M3 3l7 18 3-7 7-3-17-8z"/></svg>'), auto;
+  }
+  
+  .menu-item-hover:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c, 0 0 20px #ff003c;
+  }
+
+  @keyframes flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+      opacity: 1;
+      color: #ff003c;
+      text-shadow: 0 0 8px #ff003c, 0 0 20px #ff003c;
+    }
+    20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+      opacity: 0.5;
+      color: #ff003c;
+      text-shadow: 0 0 2px #ff003c;
+    }
+  }
+
+  .text-incandescent {
+    animation: flicker 4s infinite;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #ff0055;
+    box-shadow: 0 0 5px #ff0055;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #ff2a4b;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+}
